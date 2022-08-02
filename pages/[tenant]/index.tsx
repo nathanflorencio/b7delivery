@@ -4,7 +4,6 @@ import { SearchInput } from '../../components/SearchInput';
 import styles from '../../styles/Home.module.css';
 
 const Home = () => {
-
   const handleSearch = (searchValue: string) => {
     console.log(`Você está buscando por: ${searchValue}`);
   }
