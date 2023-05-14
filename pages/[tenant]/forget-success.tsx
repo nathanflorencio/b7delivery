@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import { Button } from '../../components/Button';
 import { Header } from '../../components/Header';
 import { Icon } from '../../components/Icon';
-import { useAppContext } from '../../contexts/AppContext';
+import { useAppContext } from '../../contexts/app';
 import { useApi } from '../../libs/useApi';
 import styles from '../../styles/ForgetSuccess.module.css';
 import { Tenant } from '../../types/Tenants';
