@@ -9,6 +9,7 @@ import { useApi } from '../../libs/useApi';
 import styles from '../../styles/Home.module.css';
 import { Product } from '../../types/Product';
 import { Tenant } from '../../types/Tenants';
+import { Sidebar } from '../../components/Sidebar';
 
 const Home = (data: Props) => {
   const { tenant, setTenant } = useAppContext();
@@ -18,6 +19,7 @@ const Home = (data: Props) => {
   }, []);
 
   const [products, setProducts] = useState<Product[]>(data.products);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const handleSearch = (searchValue: string) => {
     console.log(`Você está buscando por: ${searchValue}`);
@@ -32,11 +34,19 @@ const Home = (data: Props) => {
             <div className={styles.headerSubtitle}>O que deseja para hoje?</div>
           </div>
           <div className={styles.headerTopRight}>
-            <div className={styles.menuButton}>
+            <div 
+              className={styles.menuButton}
+              onClick={() => setSidebarOpen(true)}
+            >
               <div className={styles.menuButtonLine} style={{ backgroundColor: tenant?.mainColor }}></div>
               <div className={styles.menuButtonLine} style={{ backgroundColor: tenant?.mainColor }}></div>
               <div className={styles.menuButtonLine} style={{ backgroundColor: tenant?.mainColor }}></div>
             </div>
+            <Sidebar 
+              tenant={data.tenant}
+              open={sidebarOpen}
+              onClose={() => setSidebarOpen(false)}
+            />
           </div>
         </div>
         <div className={styles.headerBottom}>
